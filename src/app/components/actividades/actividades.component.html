@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-body">
+    <h6 class="text-center">Lista de actividades</h6>
+    <table class="table table-sm table-hover">
+      <tbody>
+          <tr *ngFor="let actividades of listaActividades">
+              <td>{{actividades.nombre}}</td>
+              <td>{{actividades.descripcion}}</td>
+              <td>{{actividades.direccion}}</td>
+            
+            <td>
+              <a class="btn btn-secondary text-white" (click)=onedit(actividades)>
+                <i class="far fa-edit"></i>
+              </a>
+            </td>
+            <td>
+                <a class="btn btn-danger text-white" (click)=onedelete(actividades.$key)>
+                  <i class="far fa-trash-alt"></i>
+                </a>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-success bg-light ">
+  <a class="navbar-brand" routerLink="inicio">
+    <img src="https://firebasestorage.googleapis.com/v0/b/iglesia-881cd.appspot.com/o/logo1.png?alt=media&token=9c1c1c30-4b4c-4e2e-9f75-4decdbeed44d" width="100" height="60" class="d-inline-block align-top" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+ 
+      <li class="nav-item">
+        <a class="nav-link " routerLink="inicio">Inicio</a>
+      </li>
+       
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Conocenos
+            </a>
+            <div class="dropdown-menu" >
+                <a class="dropdown-item" routerLink="quienes-somos">Quines Somos</a>
+                <a class="dropdown-item" routerLink="familia-pastoral">Familia Pastora</a>
+                <a class="dropdown-item" routerLink="iglesias-hijas">Iglesias Hijas</a>
+                <a class="dropdown-item" routerLink="donde-estamos">Donde Estamos</a>
+              </div>
+        </li>  
+        <li class="nav-item">
+            <a class="nav-link" routerLink="actividades">Actividades</a>
+            
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="sistemas">Sistemas</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="actividadeslist">Actividades list</a>
+      </li>
+
+    </ul>
+<!-- Button incio sesion -->
+
+<ul class="nav navbar-nav navbar-right">
+  <li><a data-toggle="modal" data-target="#loginModal" class="btn btn-outline-success" role="button">Iniciar Sesion</a></li>
+  </ul>
+  
+  </div>
+</nav>
+
+
+<div id="loginModal" class="modal fade" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal"> &times;</button>
+<h4>Login</h4>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Usuario</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Usuario">
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-outline-success">Ingresar</button>
+  </form>
+</div>
+<!--
+<div class="modal-footer">
+<div style="padding:10px"></div>
+</div>
+-->
+</div>
+</div>
+</div>
+

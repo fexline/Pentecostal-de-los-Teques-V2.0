@@ -7,8 +7,24 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Font Aweson 5.4-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
 <body>
+    
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCAG-VYFwTA9wS6SVN_6MVRjcjRS_E7_t4",
+    authDomain: "pentecostalosteques.firebaseapp.com",
+    databaseURL: "https://pentecostalosteques.firebaseio.com",
+    projectId: "pentecostalosteques",
+    storageBucket: "pentecostalosteques.appspot.com",
+    messagingSenderId: "604442572079"
+  };
+  firebase.initializeApp(config);
+</script>
   <app-root></app-root>
 </body>
 </html>

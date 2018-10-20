@@ -1,0 +1,27 @@
+section{
+    width:  100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+.parallax{
+    height: 100vh;
+    width: 100%;
+    background: #fff fixed no-repeat ;
+    -webkit-backdrop-size: cover;
+    -moz-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+
+}
+#seccion1{
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/iglesia-881cd.appspot.com/o/I1.jpg?alt=media&token=7c138ccb-f341-471e-bf91-5f657507cf19')
+}
+#seccion2{
+ 
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/iglesia-881cd.appspot.com/o/I4.jpg?alt=media&token=d2990dfb-5ad5-45bd-9937-35d715062448')
+}
+#seccion3{
+ 
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/iglesia-881cd.appspot.com/o/I5.jpg?alt=media&token=ed240aaa-4090-4f0c-b5e1-25c4ec7e9a2b')
+}

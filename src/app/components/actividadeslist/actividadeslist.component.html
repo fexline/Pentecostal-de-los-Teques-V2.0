@@ -1,0 +1,67 @@
+<div class="card mt-5">
+    <div class="card-body">
+      <form #actividadesForm="ngForm" (ngSubmit)="onSubmit(actividadesForm)">
+ 
+        <div class="form-group">
+              <input 
+              type="text" 
+              class="form-control" 
+              name="nombre"
+              #nombre="ngModel"
+              [(ngModel)]="servicio1Service.selectActividades.nombre"
+              placeholder="Agregar Nombre">
+            </div>
+
+            <div class="form-group">
+                <input 
+                type="text" 
+                class="form-control" 
+                name="descripcion"
+                #descripcion="ngModel"
+                [(ngModel)]="servicio1Service.selectActividades.descripcion"
+                placeholder="Agregar dscripcion">                
+            </div>
+
+            <div class="form-group">  
+                <input 
+                type="text" 
+                class="form-control" 
+                name="direccion"
+                #direccion="ngModel"
+                [(ngModel)]="servicio1Service.selectActividades.direccion"
+                placeholder="Agregar direccion">
+              </div>
+
+              <div class="form-group">  
+                <input 
+                type="text" 
+                class="form-control" 
+                name="encargado"
+                #encargado="ngModel"
+                [(ngModel)]="servicio1Service.selectActividades.encargado"
+                placeholder="Agregar Encargado">
+              </div>
+
+                  <div class="form-group">
+                      <input 
+                      type="date" 
+                      class="form-control" 
+                      name="fecha"
+                      #fecha="ngModel"
+                      [(ngModel)]="servicio1Service.selectActividades.fecha"
+                      placeholder="Agregar Fecha">
+                    </div>
+
+                    <div class="form-group">
+                      <button class="btn btn-primary" type="submit">
+                        Agregar
+                      </button>
+                      <button class="btn btn-secondary" type="reset" (click)="resetForm(actividadesForm)">
+                        Limpiar campos  
+                      </button>
+                    </div>
+
+      </form>
+    </div>
+  </div>
+  

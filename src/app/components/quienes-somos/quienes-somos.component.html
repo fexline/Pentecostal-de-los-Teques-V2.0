@@ -1,0 +1,22 @@
+
+  <h1 aling="center">Resumen de actividades del 01-01-2018 al 07-01-2018</h1>
+  <!-- componente tarjetas -->
+ 
+    
+    <!-- tarjeta sola-->
+    <div class="card-deck">
+        <div *ngFor="let actividades of listaActividades">
+          <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Dia : {{actividades.fecha}}             
+            </div>
+            <div class="card-body text-primary">
+              <h5 class="card-title">{{actividades.nombre}}</h5>
+              <p class="card-text">Encargado: {{actividades.encargado}}</p>
+              <p class="card-text">Descricion: {{actividades.descripcion}}</p>
+              <p class="card-text">Direccion: {{actividades.direccion}}</p>
+            </div>
+
+          </div>
+  
+    </div>
+  </div>

@@ -1,22 +1,22 @@
-import { Component } from '@angular/core';
+<!DOCTYPE html>
+<html>
+  <head>
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  title = 'PentecostalLosTeques';
-}
-export const conexion = {
-  config: {
+  </head>
+  <body>
+   
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
     apiKey: "AIzaSyCAG-VYFwTA9wS6SVN_6MVRjcjRS_E7_t4",
     authDomain: "pentecostalosteques.firebaseapp.com",
     databaseURL: "https://pentecostalosteques.firebaseio.com",
     projectId: "pentecostalosteques",
     storageBucket: "pentecostalosteques.appspot.com",
     messagingSenderId: "604442572079"
-
-  }
-
-};
+  };
+  firebase.initializeApp(config);
+</script>
+  </body>
+</html>
