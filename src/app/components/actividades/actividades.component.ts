@@ -4,10 +4,6 @@ import { NgForm } from '@angular/forms';
 import { Servicio1Service} from "../../services/servicio1.service";
 // Clase
 import {Actividades} from "../../class/actividades"
-///fin
-import { snapshotChanges } from 'angularfire2/database';
-import { Subscriber } from 'rxjs';
-import { element } from 'protractor';
 @Component({
   selector: 'app-actividades',
   templateUrl: './actividades.component.html',
@@ -16,13 +12,10 @@ import { element } from 'protractor';
 export class ActividadesComponent implements OnInit {
   
   listaActividades: Actividades[];
-  constructor(private servicio1Service: Servicio1Service) 
-  {
-    
-   }
+  constructor(public servicio1Service: Servicio1Service) { }
 
-  ngOnInit() 
-  {
+  ngOnInit()
+{
     this.servicio1Service.getActividades()
     .snapshotChanges()
     .subscribe(item=>{
@@ -34,5 +27,19 @@ export class ActividadesComponent implements OnInit {
       });
     });
   }
+onedit(Actividades: Actividades)
+  {
+this.servicio1Service.selectActividades = Object.assign({},Actividades);
+  };
+ondelete($key: string)
+  {
+    this.servicio1Service.deleteActividades($key);
+  };
+  onSubmit(editForm: NgForm)
+  {
+    this.servicio1Service.updateActividades(editForm.value);
 
+  }
+  
 }
+

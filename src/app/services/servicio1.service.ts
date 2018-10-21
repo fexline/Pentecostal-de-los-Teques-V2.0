@@ -32,7 +32,7 @@ export class Servicio1Service {
 //Atucalizar actividades
 updateActividades(actividades: Actividades)
 {
-  this.actividadeslist.update(actividades.$key, {
+  this.actividadeslist.update(actividades.$key,{
     nombre: actividades.nombre,
     descripcion: actividades.descripcion,
     direccion: actividades.direccion,

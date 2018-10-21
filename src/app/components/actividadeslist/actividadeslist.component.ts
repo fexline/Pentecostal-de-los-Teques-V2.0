@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {FormsModule} from "@angular/forms";
+
 //servicio
 import { Servicio1Service} from "../../services/servicio1.service";
 // clase
