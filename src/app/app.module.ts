@@ -7,6 +7,9 @@ import {FormsModule} from "@angular/forms";
 import {AngularFireModule} from "angularfire2";
 import {AngularFireDatabaseModule} from "angularfire2/database";
  import {conexion} from "../app/app.component";
+ //aminaciones de angular , para uso de toastr
+ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+ import { ToastrModule} from 'ngx-toastr';
 // services
 import {Servicio1Service} from "./services/servicio1.service";
 //componets
@@ -22,6 +25,7 @@ import { BanerComponent } from './components/baner/baner.component';
 import { NavbarClientesComponent } from './components/navbar-clientes/navbar-clientes.component';
 import { PiePaginaComponent } from './components/pie-pagina/pie-pagina.component';
 import { ActividadeslistComponent } from './components/actividadeslist/actividadeslist.component';
+import { from } from 'rxjs';
 //en rutamiento
 const routes: Route[] = [
   {path:'', component: InicioComponent},
@@ -54,7 +58,10 @@ const routes: Route[] = [
     RouterModule.forRoot(routes),
    AngularFireModule.initializeApp(conexion.config),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
+    
   ],
   providers: [
    Servicio1Service

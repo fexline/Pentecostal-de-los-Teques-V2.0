@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 
 //servicio
 import { Servicio1Service} from "../../services/servicio1.service";
+//Animacion Toastr
+import {ToastrService} from 'ngx-toastr';
 // clase
 import { Actividades } from '../../class/actividades';
 @Component({
@@ -12,7 +14,10 @@ import { Actividades } from '../../class/actividades';
 })
 export class ActividadeslistComponent implements OnInit {
 
-  constructor(public servicio1Service: Servicio1Service) { }
+  constructor(
+    public servicio1Service: Servicio1Service,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit() 
   {
@@ -21,9 +26,12 @@ export class ActividadeslistComponent implements OnInit {
   }
   
   onSubmit(actividadesForm:NgForm)
+  { if(confirm('Esta seguro que desea guardar esta actividad?'))
   {
     this.servicio1Service.insertActividades(actividadesForm.value);
     this.resetForm(actividadesForm);
+    this.toastr.success('successfull','La Actividad se ha guardado con exicto');
+  }
   }
 
 
