@@ -30,7 +30,8 @@ loginEmail(email: string, pass: string){
 }
 
 getAuth(){
-  return this.afAuth.authState.pipe(map (auth => {auth}));
+  
+  return this.afAuth.authState.pipe(map (auth => auth));
 }
 
   logout() {

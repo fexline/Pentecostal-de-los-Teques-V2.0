@@ -1,11 +1,71 @@
+
 <div class="row">
-  <div class="col-md-6 mx-auto mt-5">
+  <div class="col-md-10 mx-auto mt-10">
     <div class="card">
       <div class="card-body">
-        <h1 class="text-center">Crear Actividad</h1>
-        <form #actividadesForm="ngForm" (ngSubmit)="onSubmit(actividadesForm)">
- 
+        <h1 class="text-center">Actividades Actuales de Activas</h1>
+
+        <table class="table table-sm table-hover">
+          <tbody>
+            <tr>
+              <td class="text-center"><h6>Nombre</h6></td>
+              <td class="text-center"><h6>Fecha</h6></td>
+              <td class="text-center"><h6>Encargado</h6></td>
+              <td class="text-center"><h6>Descripcion</h6></td>
+              <td class="text-center"><h6>Direccion</h6></td>            
+            </tr>
+              <tr *ngFor="let actividades of listaActividades">
+                  <td >{{actividades.nombre}}</td>
+                  <td>{{actividades.fecha}}</td>
+                  <td>{{actividades.encargado}}</td>
+                  <td>{{actividades.descripcion}}</td>
+                  <td>{{actividades.direccion}}</td>
+                <td>
+                    <a class="btn btn-secondary text-white" data-toggle="modal" data-target="#exampleModal" (click)=onedit(actividades)>
+                        <i class="far fa-edit"></i>
+                      </a> 
+                </td>
+                <td>
+                    <a class="btn btn-danger text-white" (click)=ondelete(actividades.$key)>
+                      <i class="far fa-trash-alt"></i>
+                    </a>
+                  </td>
+                </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- aqui empieza el llenado del modal-->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+  <!-- esta el formulario del modal-->
+  
+        <form #editForm="ngForm"   >
+    
           <div class="form-group">
+                <input 
+                type="text" 
+                class="form-control" 
+                name="$key"
+                #$key="ngModel"
+                [(ngModel)]="servicio1Service.selectActividades.$key"
+                placeholder="key">
+              </div>
+             <div class="form-group">
                 <input 
                 type="text" 
                 class="form-control" 
@@ -56,25 +116,23 @@
                       </div>
   
                       <div class="form-group">
-                        <button class="btn btn-primary btn-block btn-lg" type="submit">
-                          Crear
-                        </button>
-
+                        
                       </div>
   
-        </form>
- 
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button class="btn btn-primary"  type="button" (click)="edit2(editForm);" data-dismiss="modal" > guardar</button>
+
+                </form>
+  <!-- aqui termina en el modal-->
+          </div>
+          <div class="modal-footer">
+
+          </div>
+
+
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
 
-
-
-
-
-
-
-  
-  
+    

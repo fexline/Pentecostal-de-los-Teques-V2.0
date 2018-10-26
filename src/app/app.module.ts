@@ -14,6 +14,7 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
 // services
 import {Servicio1Service} from "./services/servicio1.service";
 import {AuthService} from './services/auth.service';
+import {AuthGuard} from './guards/auth.guard';
 //componets
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -30,6 +31,8 @@ import { ActividadeslistComponent } from './components/actividadeslist/actividad
 import { from } from 'rxjs';
 import { PrincipalAdministradorComponent } from './components/principal-administrador/principal-administrador.component';
 import { CrearUsuarioComponent } from './components/crear-usuario/crear-usuario.component';
+import { CrearActividadesComponent } from './components/crear-actividades/crear-actividades.component';
+
 //en rutamiento
 const routes: Route[] = [
   {path:'', component: InicioComponent},
@@ -40,9 +43,10 @@ const routes: Route[] = [
   {path:'donde-estamos', component: DondeEstamosComponent},
   {path:'actividades', component: ActividadesComponent},
   {path:'sistemas', component: SistemasComponent},
-  {path:'actividadeslist', component: ActividadeslistComponent},
-  {path:'crear-usuario', component: CrearUsuarioComponent},
-  {path:'principal-administrador', component: PrincipalAdministradorComponent}
+  {path:'actividadeslist', component: ActividadeslistComponent, canActivate: [AuthGuard]},
+  {path:'crear-usuario', component: CrearUsuarioComponent, canActivate: [AuthGuard]},
+  {path:'crear-actividades', component: CrearActividadesComponent, canActivate: [AuthGuard]},
+  {path:'principal-administrador', component: PrincipalAdministradorComponent, canActivate: [AuthGuard]}
   
 ];
 @NgModule({
@@ -60,7 +64,8 @@ const routes: Route[] = [
     PiePaginaComponent,
     ActividadeslistComponent,
     PrincipalAdministradorComponent,
-    CrearUsuarioComponent
+    CrearUsuarioComponent,
+    CrearActividadesComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +80,8 @@ const routes: Route[] = [
   ],
   providers: [
    Servicio1Service,
-   AuthService
+   AuthService,
+   AuthGuard
   ],
   
   bootstrap: [AppComponent]

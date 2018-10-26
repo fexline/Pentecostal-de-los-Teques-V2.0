@@ -1,46 +1,64 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
 //servicio
 import { Servicio1Service} from "../../services/servicio1.service";
 //Animacion Toastr
 import {ToastrService} from 'ngx-toastr';
-// clase
-import { Actividades } from '../../class/actividades';
+// Clase
+import {Actividades} from "../../class/actividades"
+import { from } from 'rxjs';
+
+
 @Component({
   selector: 'app-actividadeslist',
   templateUrl: './actividadeslist.component.html',
   styleUrls: ['./actividadeslist.component.css']
 })
 export class ActividadeslistComponent implements OnInit {
-
+  listaActividades: Actividades[];
   constructor(
     public servicio1Service: Servicio1Service,
     private toastr: ToastrService
+
     ) { }
 
   ngOnInit() 
   {
-    this.servicio1Service.getActividades();
-    this.resetForm();
+    this.servicio1Service.getActividades()
+    .snapshotChanges()
+    .subscribe(item=>{
+      this.listaActividades = [];
+      item.forEach(element =>{
+        let x = element.payload.toJSON();
+        x["$key"] = element.key;
+        this.listaActividades.push(x as Actividades);
+      });
+    });
+    
+  }
+onedit(Actividades: Actividades)
+{
+this.servicio1Service.selectActividades = Object.assign({},Actividades);
+};
+ondelete($key: string)
+{
+  if(confirm('Esta seguro que desea Eliminar esta actividad?'))
+{
+  this.servicio1Service.deleteActividades($key);
+  this.toastr.success('successfull','Se elimino la Actividad');
+}
+};
+
+edit2(editForma: NgForm ){
+
+  if(confirm('Esta seguro que desea guardar los cambios realizado en esta actividad?'))
+  {
+  this.servicio1Service.updateActividades(editForma.value);
+  this.toastr.success('successfull','Cambios Realizados Con Exito');
+  }
+}
   }
   
-  onSubmit(actividadesForm:NgForm)
-  { if(confirm('Esta seguro que desea guardar esta actividad?'))
-  {
-    this.servicio1Service.insertActividades(actividadesForm.value);
-    this.resetForm(actividadesForm);
-    this.toastr.success('successfull','La Actividad se ha guardado con exicto');
-  }
-  }
+  
 
 
-
-  resetForm(ActividadesForm?:NgForm)
-  {
-    if(ActividadesForm != null)
-     ActividadesForm.reset();
-    this.servicio1Service.selectActividades = new Actividades();
- }
-
-}
