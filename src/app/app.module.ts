@@ -5,6 +5,7 @@ import {Route, RouterModule} from '@angular/router';
 import {FormsModule} from "@angular/forms";
 //firebase
 import {AngularFireModule} from "angularfire2";
+import {AngularFireAuthModule} from'angularfire2/auth';
 import {AngularFireDatabaseModule} from "angularfire2/database";
  import {conexion} from "../app/app.component";
  //aminaciones de angular , para uso de toastr
@@ -12,6 +13,7 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
  import { ToastrModule} from 'ngx-toastr';
 // services
 import {Servicio1Service} from "./services/servicio1.service";
+import {AuthService} from './services/auth.service';
 //componets
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -26,6 +28,8 @@ import { NavbarClientesComponent } from './components/navbar-clientes/navbar-cli
 import { PiePaginaComponent } from './components/pie-pagina/pie-pagina.component';
 import { ActividadeslistComponent } from './components/actividadeslist/actividadeslist.component';
 import { from } from 'rxjs';
+import { PrincipalAdministradorComponent } from './components/principal-administrador/principal-administrador.component';
+import { CrearUsuarioComponent } from './components/crear-usuario/crear-usuario.component';
 //en rutamiento
 const routes: Route[] = [
   {path:'', component: InicioComponent},
@@ -36,7 +40,10 @@ const routes: Route[] = [
   {path:'donde-estamos', component: DondeEstamosComponent},
   {path:'actividades', component: ActividadesComponent},
   {path:'sistemas', component: SistemasComponent},
-  {path:'actividadeslist', component: ActividadeslistComponent}
+  {path:'actividadeslist', component: ActividadeslistComponent},
+  {path:'crear-usuario', component: CrearUsuarioComponent},
+  {path:'principal-administrador', component: PrincipalAdministradorComponent}
+  
 ];
 @NgModule({
   declarations: [
@@ -51,7 +58,9 @@ const routes: Route[] = [
     BanerComponent,
     NavbarClientesComponent,
     PiePaginaComponent,
-    ActividadeslistComponent
+    ActividadeslistComponent,
+    PrincipalAdministradorComponent,
+    CrearUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -60,11 +69,13 @@ const routes: Route[] = [
     AngularFireDatabaseModule,
     FormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireAuthModule
     
   ],
   providers: [
-   Servicio1Service
+   Servicio1Service,
+   AuthService
   ],
   
   bootstrap: [AppComponent]

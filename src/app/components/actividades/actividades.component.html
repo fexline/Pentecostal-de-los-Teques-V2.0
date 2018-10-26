@@ -1,40 +1,43 @@
 
-<!--
-  aki es la lista 
--->
-<div class="card">
-  <div class="card-body">
-    <h6 class="text-center">Lista de actividades</h6>
-    <table class="table table-sm table-hover">
-      <tbody>
-        <tr>
-          <td><h6>Nombre</h6></td>
-          <td><h6>Descripcion</h6></td>
-          <td><h6>Direccion</h6></td>          
-        </tr>
-          <tr *ngFor="let actividades of listaActividades">
-              <td>{{actividades.nombre}}</td>
-              <td>{{actividades.descripcion}}</td>
-              <td>{{actividades.direccion}}</td>
-            
-            <td>
-                <a class="btn btn-secondary text-white" data-toggle="modal" data-target="#exampleModal" (click)=onedit(actividades)>
-                    <i class="far fa-edit"></i>
-                  </a> 
-            </td>
-            <td>
-                <a class="btn btn-danger text-white" (click)=ondelete(actividades.$key)>
-                  <i class="far fa-trash-alt"></i>
-                </a>
-              </td>
+<div class="row">
+  <div class="col-md-6 mx-auto mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="text-center">Actividades Actuales de Activas</h1>
+
+        <table class="table table-sm table-hover">
+          <tbody>
+            <tr>
+              <td class="text-center"><h6>Nombre</h6></td>
+              <td class="text-center"><h6>Fecha</h6></td>
+              <td class="text-center"><h6>Encargado</h6></td>
+              <td class="text-center"><h6>Descripcion</h6></td>
+              <td class="text-center"><h6>Direccion</h6></td>            
             </tr>
-      </tbody>
-    </table>
+              <tr *ngFor="let actividades of listaActividades">
+                  <td >{{actividades.nombre}}</td>
+                  <td>{{actividades.fecha}}</td>
+                  <td>{{actividades.encargado}}</td>
+                  <td>{{actividades.descripcion}}</td>
+                  <td>{{actividades.direccion}}</td>
+                <td>
+                    <a class="btn btn-secondary text-white" data-toggle="modal" data-target="#exampleModal" (click)=onedit(actividades)>
+                        <i class="far fa-edit"></i>
+                      </a> 
+                </td>
+                <td>
+                    <a class="btn btn-danger text-white" (click)=ondelete(actividades.$key)>
+                      <i class="far fa-trash-alt"></i>
+                    </a>
+                  </td>
+                </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
   </div>
 </div>
-
-
-
 
 
   <!-- aqui empieza el llenado del modal-->
