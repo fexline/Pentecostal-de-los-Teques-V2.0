@@ -1,4 +1,7 @@
-<nav class="navbar  navbar-expand-lg navbar-success bg-light ">
+
+
+<!-- mi navbar-->
+<nav class="navbar sticky-top navbar-expand-lg navbar-light  ">
     <a class="navbar-brand" routerLink="inicio">
       <img src="https://firebasestorage.googleapis.com/v0/b/iglesia-881cd.appspot.com/o/logo1.png?alt=media&token=9c1c1c30-4b4c-4e2e-9f75-4decdbeed44d" width="100" height="60" class="d-inline-block align-top" alt="">
     </a>
@@ -9,7 +12,61 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
    
-        <li class="nav-item" *ngIf="!isLogin" id="sidebar">
+      
+        
+        
+              <li class="nav-item dropdown" *ngIf="!isLogin" id="sidebar">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                       <i class="fas fa-user-circle"></i>
+                  </a>
+                  <div class="dropdown-menu" style=" width: 20rem" >
+                  
+                                
+                        
+                      <div class="card border-white mb-3" style="max-width: 18rem;">
+                          <div class="card-body">
+                      
+                          
+                      <form #LoginForm="ngForm">
+                          
+                          <div class="form-group">           
+                            <input 
+                            type="email"
+                            class="form-control" 
+                            name="email"  
+                            [(ngModel)]="email"
+                            placeholder="Enter email"
+                            >
+                            
+                          </div>
+                       
+                           <div class="form-group">    
+                            <input 
+                            type="password" 
+                            class="form-control"
+                             name="password"        
+                             [(ngModel)]="password"
+                              placeholder="Password">
+                          </div>  
+                      
+                          <button class="btn btn-success btn-block btn-lg"  type="button" (click)="Login(LoginForm);"  >Iniciar sesion</button>
+                                       
+                          </form>
+                        
+                    </div>
+                    </div>
+            
+                  
+      
+                    </div>
+            </li>
+      </ul>
+  <!-- Button incio sesion -->
+  
+  <ul class="nav navbar-nav navbar-right">
+  
+      <li class="nav-item" *ngIf="!isLogin" id="sidebar">
           <a class="nav-link " routerLink="inicio">Inicio</a>
         </li>
          
@@ -33,6 +90,9 @@
             <a class="nav-link" routerLink="sistemas">Sistemas</a>
         </li>
         <li class="nav-item" *ngIf="isLogin" id="sidebar">
+          <a class="nav-link" routerLink="crear-banner">Crear Banner</a>
+      </li>
+        <li class="nav-item" *ngIf="isLogin" id="sidebar">
             <a class="nav-link" routerLink="crear-actividades">Crear Actividades</a>
         </li>
         <li class="nav-item"  *ngIf="isLogin" id="sidebar">
@@ -41,65 +101,15 @@
       <li class="nav-item" *ngIf="isLogin" id="sidebar">
         <a class="nav-link" routerLink="crear-usuario">Crear usuario</a>
     </li>
-      </ul>
-  <!-- Button incio sesion -->
-  
-  <ul class="nav navbar-nav navbar-right">
-      <li class="nav-item" *ngIf="!isLogin" id="sidebar">
-            <a class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal" >Iniciar sesion</a>
-                       
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-<form #LoginForm="ngForm">
-  <div class="form-group">           
-    <input 
-    type="email"
-    class="form-control" 
-    name="email"  
-    [(ngModel)]="email"
-    placeholder="Enter email">
- </div>
-  <div class="form-group">    
-    <input 
-    type="password" 
-    class="form-control"
-     name="password"        
-     [(ngModel)]="password"
-      placeholder="Password">
-  </div>  
-  <input class="btn btn-outline-success btn-block btn-lg" type="button" value="Iniciar Sesion" (click)="OnSubmitLogin(LoginForm);"data-dismiss="modal">
-</form>
-</div>
-<div class="modal-footer">
-</div>
-</div>
-</div>
-</div>
-
-            </li>
-  <li class="nav-item" *ngIf="isLogin" id="sidebar">
-      <button class="btn btn-outline-danger"   type="button" (click)="Logout();" data-dismiss="modal" >Cerrar Sesion</button>
+    <li class="nav-item" *ngIf="isLogin" id="sidebar">
+            <button class="btn btn-outline-danger"   type="button" (click)="Logout();"  >Cerrar Sesion</button>
+         
+        </li>     
+</ul>
    
-  </li>  
-  </ul>
-    
-    </div>
+        </div>
+
   </nav>
   
 
-  
-
-
-<!--boton modal-->
-
-
-
-
+         

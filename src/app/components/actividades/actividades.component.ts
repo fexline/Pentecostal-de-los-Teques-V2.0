@@ -12,8 +12,6 @@ import {Actividades} from "../../class/actividades"
 export class ActividadesComponent implements OnInit {
   listaActividades: Actividades[];
  
-
-  
   constructor( 
     private servicio1Service: Servicio1Service
     ) { }

@@ -38,7 +38,7 @@ export class NavbarClientesComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['/inicio']);
   }
-  OnSubmitLogin(){
+  Login(){
     this.authService.loginEmail(this.email, this.password)
     .then ( (res) =>{
       this.router.navigate(['/principal-administrador']);

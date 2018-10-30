@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-//import { ActividadeslistComponent } from '../components/actividadeslist/actividadeslist.component';
-import { AngularFireDatabase, AngularFireList} from "angularfire2/database"
-import {Actividades} from "../class/actividades"
-
-@Injectable({
+import { AngularFireDatabase, AngularFireList} from "angularfire2/database";
+import {Actividades} from "../class/actividades";
+@Injectable({ 
   providedIn: 'root'
 })
 export class Servicio1Service {
@@ -29,7 +27,7 @@ export class Servicio1Service {
     });
 
   }
-//Atucalizar actividades
+//Actualizar actividades
 updateActividades(actividades: Actividades)
 {
   this.actividadeslist.update(actividades.$key,{

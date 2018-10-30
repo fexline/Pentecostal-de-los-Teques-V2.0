@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="col-md-6 mx-auto mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="text-center">Subir banner Publicitario</h1>
+        <form #bannerForm="ngForm" (ngSubmit)="onSubmit(bannerForm)">
+ 
+            <div class="form-group">
+                <input 
+                type="text" 
+                class="form-control" 
+                name="nombre"
+                #nombre="ngModel"
+                [(ngModel)]="bannerService.selectBanner.nombre"
+                placeholder="Escriba del banner (solo es referencial)">
+              </div>
+ 
+              <div class="form-group">
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  name="titulo"
+                  #titulo="ngModel"
+                  [(ngModel)]="bannerService.selectBanner.titulo"
+                  placeholder="Escriba el Titulo que se mostrara en el banner">
+                </div>
+
+                <div class="form-group">
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    name="nota"
+                    #nota="ngModel"
+                    [(ngModel)]="bannerService.selectBanner.nota"
+                    placeholder="Escriba la descripcion que se mostrara en el banner">
+                  </div>
+
+
+  
+
+<!-- Carga de imagen  -->
+<div>
+  <div class="card body">
+    <input type="file" (change)="getFile($event)" />
+    
+    <div>{{ uploadPercent | async }}</div>
+
+         <div class="card-body">
+             <div class="progress">
+               <div class="progress-bar progress-bar-striped bg-success" 
+                  role="progressbar" [style.width]="(uploadPercent | async) +
+                   '%'" [attr.aria-valuenow]=" (uploadPercent | async) " aria-valuemin="0"
+                  aria-valuemax="100">{{ uploadPercent | async }}
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+              <input
+              type="url" 
+              class="form-control" 
+              name="ruta"
+              #ruta="ngModel"
+              [(ngModel)]="bannerService.selectBanner.ruta"
+              value="{{ downloadURL | async }}">                
+          </div>  
+</div>
+</div>
+<!-- fin de carga de imagen -->
+
+
+                      <div class="form-group">
+                        <button class="btn btn-primary btn-block btn-lg" type="submit">
+                          Subir ruta de la imagen
+                        </button>
+           
+
+                      </div>
+  
+        </form>
+ 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- esto es lo nuevo-->
+
+     
+ 
