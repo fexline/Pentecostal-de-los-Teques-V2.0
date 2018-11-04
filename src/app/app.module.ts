@@ -41,6 +41,7 @@ import { CrearActividadesComponent } from './components/crear-actividades/crear-
 import { CrearBannerComponent } from './components/crear-banner/crear-banner.component';
 import { DropZoneDirective } from './drop-zone.directive';
 import { CatsComponent } from './cats/cats.component';
+import { BannerListComponent } from './components/banner-list/banner-list.component';
 
 
 
@@ -59,7 +60,7 @@ const routes: Route[] = [
   {path:'crear-banner', component: CrearBannerComponent, canActivate: [AuthGuard]},
   {path:'crear-actividades', component: CrearActividadesComponent, canActivate: [AuthGuard]},
   {path:'principal-administrador', component: PrincipalAdministradorComponent, canActivate: [AuthGuard]},
-  {path:'cats', component: CatsComponent}
+  {path:'banner-list', component: BannerListComponent, canActivate: [AuthGuard]}
   
 ];
 @NgModule({
@@ -81,7 +82,8 @@ const routes: Route[] = [
     CrearActividadesComponent,
     CrearBannerComponent,
     DropZoneDirective,
-    CatsComponent
+    CatsComponent,
+    BannerListComponent
     
   
   ],

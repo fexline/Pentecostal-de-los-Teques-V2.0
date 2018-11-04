@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-body">
         <h1 class="text-center">Subir banner Publicitario</h1>
-        <form #bannerForm="ngForm" (ngSubmit)="onSubmit(bannerForm)">
+        <form #bannerForm="ngForm"   class="was-validated">
  
             <div class="form-group">
                 <input 
@@ -12,7 +12,8 @@
                 name="nombre"
                 #nombre="ngModel"
                 [(ngModel)]="bannerService.selectBanner.nombre"
-                placeholder="Escriba del banner (solo es referencial)">
+                placeholder="Escriba del banner (solo es referencial)"
+                required>
               </div>
  
               <div class="form-group">
@@ -22,7 +23,8 @@
                   name="titulo"
                   #titulo="ngModel"
                   [(ngModel)]="bannerService.selectBanner.titulo"
-                  placeholder="Escriba el Titulo que se mostrara en el banner">
+                  placeholder="Escriba el Titulo que se mostrara en el banner"
+                  required>
                 </div>
 
                 <div class="form-group">
@@ -32,18 +34,27 @@
                     name="nota"
                     #nota="ngModel"
                     [(ngModel)]="bannerService.selectBanner.nota"
-                    placeholder="Escriba la descripcion que se mostrara en el banner">
+                    placeholder="Escriba la descripcion que se mostrara en el banner"
+                    required>
                   </div>
 
 
   
 
 <!-- Carga de imagen  -->
-<div>
+<div class="form-group">
   <div class="card body">
-    <input type="file" (change)="getFile($event)" />
     
-    <div>{{ uploadPercent | async }}</div>
+    <input type="file" 
+    class="form-control-file"
+    name="file"
+    (change)="getFile($event)" 
+    #ruta="ngModel"
+    [(ngModel)]="bannerService.selectBanner.ruta"
+    >   
+ 
+
+    
 
          <div class="card-body">
              <div class="progress">
@@ -54,22 +65,25 @@
               </div>
             </div>
           </div>
-          <div class="form-group">
-              <input
-              type="url" 
-              class="form-control" 
+       
+            <input 
+            
+            type="hidden" 
               name="ruta"
               #ruta="ngModel"
               [(ngModel)]="bannerService.selectBanner.ruta"
-              value="{{ downloadURL | async }}">                
-          </div>  
+           
+              value="{{downloadURL | async}}">
+                
+         
+          
 </div>
 </div>
 <!-- fin de carga de imagen -->
 
 
                       <div class="form-group">
-                        <button class="btn btn-primary btn-block btn-lg" type="submit">
+                        <button class="btn btn-primary btn-block btn-lg" (click)="onSubmit(bannerForm);">
                           Subir ruta de la imagen
                         </button>
            

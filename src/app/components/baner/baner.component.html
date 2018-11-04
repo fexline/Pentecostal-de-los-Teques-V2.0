@@ -11,19 +11,21 @@
 
 </section>
   -->
-        
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" *ngIf="!isLogin">
-            <div class="carousel-inner">              
-                <div class="carousel-item {{ i == 0 ? 'active' : ''}}"
-                    *ngFor="let banner of listaBanner; index as i ">
-                      
-                        <img class="d-block w-100" [src]="banner['ruta']" >
-                        
-                                <div class="carousel-caption d-none d-md-block">
-                                      <h5>{{banner['titulo']}}</h5>
-                                      <p>{{banner['nota']}}</p>
-                                 </div>
-                </div>      
-            </div>
-    </div>
-   
+  
+
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" *ngIf="!isLogin">
+                <div class="carousel-inner">              
+                    <div class="carousel-item {{ i == 0 ? 'active' : ''}}"
+                        *ngFor="let banner of listaBanner; index as i ">
+                          
+                        <img class="d-block w-100" [src]="banner['ruta']" height="150px">
+                            
+                                    <div class="carousel-caption d-md-block">
+                                          <h5>{{banner['titulo']}}</h5>
+                                          <p>{{banner['nota']}}</p>
+                                     </div>
+                    </div>      
+                </div>
+        </div>
+     
+    

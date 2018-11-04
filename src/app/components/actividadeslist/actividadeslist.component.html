@@ -12,7 +12,11 @@
               <td class="text-center"><h6>Fecha</h6></td>
               <td class="text-center"><h6>Encargado</h6></td>
               <td class="text-center"><h6>Descripcion</h6></td>
-              <td class="text-center"><h6>Direccion</h6></td>            
+              <td class="text-center"><h6>Direccion</h6></td>
+              <td class="text-center"><h6>Imagen</h6></td>
+              <td class="text-center"><h6>Editar</h6></td>
+              <td class="text-center"><h6>Borrar</h6></td>
+                          
             </tr>
               <tr *ngFor="let actividades of listaActividades">
                   <td >{{actividades.nombre}}</td>
@@ -20,6 +24,9 @@
                   <td>{{actividades.encargado}}</td>
                   <td>{{actividades.descripcion}}</td>
                   <td>{{actividades.direccion}}</td>
+                  <td class="text-center">
+                      <img  [src]="actividades['ruta']" height="50px" width="90" >
+                  </td>
                 <td>
                     <a class="btn btn-secondary text-white" data-toggle="modal" data-target="#exampleModal" (click)=onedit(actividades)>
                         <i class="far fa-edit"></i>
@@ -58,7 +65,7 @@
     
           <div class="form-group">
                 <input 
-                type="text" 
+                type="hidden" 
                 class="form-control" 
                 name="$key"
                 #$key="ngModel"
@@ -114,6 +121,16 @@
                         [(ngModel)]="servicio1Service.selectActividades.fecha"
                         placeholder="Agregar Fecha">
                       </div>
+
+                      <div class="form-group">
+                          <input 
+                          type="hidden" 
+                          class="form-control" 
+                          name="ruta"
+                          #ruta="ngModel"
+                          [(ngModel)]="servicio1Service.selectActividades.ruta"
+                          placeholder="Agregar Fecha">
+                        </div>
   
                       <div class="form-group">
                         

@@ -47,8 +47,12 @@ url:string;
 
   // subir informacion a la base de datos 
   onSubmit(bannerForm:NgForm)
-  { if(confirm('Esta seguro que desea guardar esta actividad?'))
+  
   {
+     if(confirm('Esta seguro que desea guardar esta actividad?'))
+  { bannerForm.value.ruta = this.profileUrl ;
+    console.log(bannerForm.value);
+    console.log(this.profileUrl);
     this.bannerService.insertBanner(bannerForm.value);
     this.resetForm(bannerForm);
     this.toastr.success('successfull','La Actividad se ha guardado con exicto');
@@ -66,11 +70,13 @@ url:string;
 
   getFile(event) {
     this.file = event.target.files[0];
-  
+    var metadata = {
+      contentType: 'image/jpeg',
+    };
     if (this.file) {
-      const filePath = Math.random().toString(13).substring(2) + this.file.name;
+      const filePath ='banner/' + Math.random().toString(13).substring(2) + this.file.name;
       const fileRef = this.storage.ref(filePath);
-      const task = this.storage.upload(filePath, this.file);
+      const task = this.storage.upload( filePath,this.file, metadata);
 
       // observe percentage changes
       this.uploadPercent = task.percentageChanges();
@@ -82,7 +88,7 @@ url:string;
             this.downloadURL.subscribe(url => {
               this.profileUrl = url; // {{ profileUrl }}
               console.log(this.profileUrl);
-              
+             
              
             });
           })

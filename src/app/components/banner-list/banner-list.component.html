@@ -1,0 +1,130 @@
+
+<div class="row">
+    <div class="col-md-10 mx-auto mt-10">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center"> RUD. Banner</h1>
+  
+          <table class="table table-sm table-hover">
+            <tbody>
+              <tr>
+                <td class="text-center"><h6>Nombre</h6></td>
+                <td class="text-center"><h6>Titulo</h6></td>
+                <td class="text-center"><h6>Descripcion</h6></td>
+                <td class="text-center"><h6>Miniatura</h6></td>
+                <td class="text-center"><h6>Editar</h6></td>
+                <td class="text-center"><h6>Eliminar</h6></td>
+                           
+              </tr>
+                <tr *ngFor="let banner of listaBanner">
+                    <td >{{banner.nombre}}</td>
+                    <td >{{banner.titulo}}</td>
+                    <td >{{banner.nota}}</td>
+                    <td class="text-center">
+                        <img  [src]="banner['ruta']" height="50px" width="90" >
+                    </td>
+                    
+                  <td class="text-center">
+                      <a class="btn btn-secondary text-white" data-toggle="modal" data-target="#exampleModal" (click)=onedit(banner)>
+                          <i class="far fa-edit"></i>
+                        </a> 
+                  </td>
+                  <td class="text-center">
+                      <a class="btn btn-danger text-white" (click)=ondelete(banner.$key)>
+                        <i class="far fa-trash-alt"></i>
+                      </a>
+                    </td>
+                  </tr>
+            </tbody>
+          </table>
+  
+        </div>
+      </div>
+    </div> </div>
+  
+  
+    <!-- aqui empieza el llenado del modal-->
+  
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar Banner</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+    <!-- esta el formulario del modal-->
+    
+          <form #editForm="ngForm"   >
+      
+            <div class="form-group">
+                  <input 
+                  type="hidden" 
+                  class="form-control" 
+                  name="$key"
+                  #$key="ngModel"
+                  [(ngModel)]="bannerService.selectBanner.$key"
+                  placeholder="key">
+                </div>
+               <div class="form-group">
+                  <input 
+                  type="text" 
+                  class="form-control" 
+                  name="nombre"
+                  #nombre="ngModel"
+                  [(ngModel)]="bannerService.selectBanner.nombre"
+                  placeholder="Agregar Nombre">
+                </div>
+    
+                <div class="form-group">
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    name="titulo"
+                    #titulo="ngModel"
+                    [(ngModel)]="bannerService.selectBanner.titulo"
+                    placeholder="Agregar un Titulo">                
+                </div>
+    
+                <div class="form-group">  
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    name="nota"
+                    #nota="ngModel"
+                    [(ngModel)]="bannerService.selectBanner.nota"
+                    placeholder="Agregar una descripcion">
+                  </div>
+                  <div class="form-group">  
+                      <input 
+                      type="hidden" 
+                      class="form-control" 
+                      name="ruta"
+                      #ruta="ngModel"
+                      [(ngModel)]="bannerService.selectBanner.ruta"
+                      >
+                    </div>
+    
+                        <div class="form-group">
+                          
+                        </div>
+    
+                        
+                        <button class="btn btn-outline-success btn-block btn-lg"  type="button" (click)="edit2(editForm);" data-dismiss="modal" > Guardar Cambios</button>
+  
+                  </form>
+    <!-- aqui termina en el modal-->
+            </div>
+            <div class="modal-footer">
+  
+            </div>
+  
+  
+          </div>
+        </div>
+      </div>
+  
+  
+      

@@ -1,11 +1,11 @@
-nav.navbar { background: #fff; border-color: #ccc; box-shadow: 0 0 2px 0 #ccc; }
-nav.navbar a { color: #f14444; }
-nav.navbar ul.navbar-nav a { color: #f14444; border-style: solid; border-width: 0 0 2px 0; border-color: #fff; }
+nav.navbar { background: #fff; border-color: #FBFCFC  ; box-shadow: 0 0 2px 0 #FBFCFC  ; }
+nav.navbar a { color: #F1C40F; }
+nav.navbar ul.navbar-nav a { color: #F39C12; border-style: solid; border-width: 0 0 2px 0; border-color: #fff; }
 nav.navbar ul.navbar-nav a:hover,
 nav.navbar ul.navbar-nav a:visited,
 nav.navbar ul.navbar-nav a:focus,
 nav.navbar ul.navbar-nav a:active { background: #fff; }
-nav.navbar ul.navbar-nav a:hover { border-color: #f14444; }
+nav.navbar ul.navbar-nav a:hover { border-color: #F1C40F; }
 nav.navbar li.divider { background: #ccc; }
 nav.navbar button.navbar-toggle { background: #f14444; border-radius: 2px; }
 nav.navbar button.navbar-toggle:hover { background: #999; }

@@ -5,4 +5,5 @@ export class Actividades {
     direccion: string;
     encargado: string;
     fecha: string;
+    ruta: string;
 }

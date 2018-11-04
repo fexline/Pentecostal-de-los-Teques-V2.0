@@ -23,7 +23,8 @@ export class Servicio1Service {
       descripcion: actividades.descripcion,
       direccion: actividades.direccion,
       encargado: actividades.encargado,
-      fecha: actividades.fecha
+      fecha: actividades.fecha,
+      ruta : actividades.ruta
     });
 
   }
@@ -35,7 +36,8 @@ updateActividades(actividades: Actividades)
     descripcion: actividades.descripcion,
     direccion: actividades.direccion,
     encargado: actividades.encargado,
-    fecha: actividades.fecha
+    fecha: actividades.fecha,
+    ruta : actividades.ruta
   });
 }
 // eliminar Actividades
