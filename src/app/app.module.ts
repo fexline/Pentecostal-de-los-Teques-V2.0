@@ -16,11 +16,13 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
  import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
  import { ToastrModule} from 'ngx-toastr';
 // services
-import {FirestoreService} from "./services/firestore/firestore.service"
+import {FirestoreService} from "./services/firestore/firestore.service";
 import {Servicio1Service} from "./services/servicio1.service";
 import {BannerService} from "./services/banner.service";
+import {UsuarioService} from "./services/usuario.service";
 import {AuthService} from './services/auth.service';
 import {AuthGuard} from './guards/auth.guard';
+import {PermisoService} from "./services/permiso.service";
 //componets
 import { AppComponent } from './app.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -42,6 +44,7 @@ import { CrearBannerComponent } from './components/crear-banner/crear-banner.com
 import { DropZoneDirective } from './drop-zone.directive';
 import { CatsComponent } from './cats/cats.component';
 import { BannerListComponent } from './components/banner-list/banner-list.component';
+import { PermisoUsuarioComponent } from './components/permiso-usuario/permiso-usuario.component';
 
 
 
@@ -55,12 +58,13 @@ const routes: Route[] = [
   {path:'donde-estamos', component: DondeEstamosComponent},
   {path:'actividades', component: ActividadesComponent},
   {path:'sistemas', component: SistemasComponent},
-  {path:'actividadeslist', component: ActividadeslistComponent, canActivate: [AuthGuard]},
-  {path:'crear-usuario', component: CrearUsuarioComponent, canActivate: [AuthGuard]},
-  {path:'crear-banner', component: CrearBannerComponent, canActivate: [AuthGuard]},
-  {path:'crear-actividades', component: CrearActividadesComponent, canActivate: [AuthGuard]},
+  {path:'principal-administrador/actividadeslist', component: ActividadeslistComponent, canActivate: [AuthGuard]},
+  {path:'principal-administrador/crear-usuario', component: CrearUsuarioComponent, canActivate: [AuthGuard]},
+  {path:'principal-administrador/crear-banner', component: CrearBannerComponent, canActivate: [AuthGuard]},
+  {path:'principal-administrador/crear-actividades', component: CrearActividadesComponent, canActivate: [AuthGuard]},
   {path:'principal-administrador', component: PrincipalAdministradorComponent, canActivate: [AuthGuard]},
-  {path:'banner-list', component: BannerListComponent, canActivate: [AuthGuard]}
+  {path:'principal-administrador/banner-list', component: BannerListComponent, canActivate: [AuthGuard]},
+  {path:'principal-administrador/permiso-usuario', component: PermisoUsuarioComponent, canActivate: [AuthGuard]}
   
 ];
 @NgModule({
@@ -83,7 +87,8 @@ const routes: Route[] = [
     CrearBannerComponent,
     DropZoneDirective,
     CatsComponent,
-    BannerListComponent
+    BannerListComponent,
+    PermisoUsuarioComponent
     
   
   ],
@@ -106,7 +111,9 @@ const routes: Route[] = [
     AngularFirestore,
     FirestoreService,
    Servicio1Service,
+   PermisoService,
    BannerService,
+   UsuarioService,
    AuthService,
    AuthGuard
   ],

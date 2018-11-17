@@ -10,6 +10,8 @@ export class DondeEstamosComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+   
+
   }
 
 }

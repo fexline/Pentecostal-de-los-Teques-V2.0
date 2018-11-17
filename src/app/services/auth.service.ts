@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
+import { AngularFireDatabase, AngularFireList} from "angularfire2/database";
 import * as firebase from 'firebase/app';
 import { map} from "rxjs/operators";
-  
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+
   constructor(
+ 
     public afAuth: AngularFireAuth
   ) { }
 
@@ -32,6 +35,7 @@ loginEmail(email: string, pass: string){
 getAuth(){
   
   return this.afAuth.authState.pipe(map (auth => auth));
+  
 }
 
   logout() {
@@ -39,3 +43,4 @@ getAuth(){
   }
 
 }
+

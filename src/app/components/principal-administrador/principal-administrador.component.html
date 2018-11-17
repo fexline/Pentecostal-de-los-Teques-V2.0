@@ -1,3 +1,48 @@
-<p>
-  principal-administrador works!
-</p>
+
+<div class="row">
+    <div class="col-md-10 mx-auto mt-10">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center">Bienvenido</h1>
+          <form class="form-inline">
+              <input class="form-control" type="hidden" name="searchInput" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
+              
+            </form>
+          <table class="table table-sm table-hover">
+            <tbody>
+          
+                <ng-container *ngFor="let usuario of listaUsuario" >
+                    <tr *ngIf="filterCondition(usuario)">
+                         
+                    <td *ngIf="usuario.cusuario" class="text-center">
+                    <a   routerLink="crear-usuario"  >
+                        <i class="fas fa-user-plus"></i> <br>Crear usuario</a></td>
+                    <td *ngIf="usuario.rudusuario" class="text-center"
+                    ><a  routerLink="permiso-usuario" >
+                        <i class="fas fa-address-card size:5x"></i><br>Modificar Credenciales </a></td>                  
+                    <td *ngIf="usuario.cbanner" class="text-center">
+                      <a  routerLink="crear-banner" >
+                          <i class="fas fa-money-check"></i>
+                        <i class="fas fa-plus"></i><br>Crear Baner</a></td>
+                    <td *ngIf="usuario.rudbanner" class="text-center">
+                      <a  routerLink="banner-list" >
+                          <i class="fas fa-money-check"></i>
+                          <i class="fas fa-pencil-alt"></i><br>Rud Banner</a></td>
+                    <td *ngIf="usuario.cactividades" class="text-center">
+                      <a  routerLink="crear-actividades" >
+                          <i class="fas fa-clipboard-list"></i>
+                          <i class="fas fa-plus"></i><br>Crear Actividades</a></td>
+                    <td *ngIf="usuario.rudactividades" class="text-center">
+                      <a  routerLink="actividadeslist" >
+                          <i class="fas fa-clipboard-list"></i>
+                          <i class="fas fa-pencil-alt"></i><br>Rud Actividades</a></td>
+                  </tr>
+                  </ng-container>
+            </tbody>
+          </table>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  

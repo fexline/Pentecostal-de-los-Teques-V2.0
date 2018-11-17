@@ -1,0 +1,184 @@
+
+<div class="row">
+  <div class="col-md-10 mx-auto mt-10">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="text-center">Asignar Credenciales</h1>
+        <form class="form-inline">
+          <input class="form-control" name="searchInput" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
+          <button class="btn btn-outline-primary" (click)="searchText=''">X</button>
+        </form>
+        <table class="table table-sm table-hover">
+            <thead>
+              <td class="text-center"><h6>Usuario</h6></td>
+              <td class="text-center"><h6>Colocar Permisos</h6></td>
+              <td class="text-center"><h6>Borrar Permisos</h6></td>
+            </thead>
+              <ng-container *ngFor="let usuario of listaUsuario" >
+                <tr *ngIf="filterCondition(usuario)">
+                  <td >{{usuario.correo}}</td>
+                 
+                <td>
+                    <a class="btn btn-secondary text-white" data-toggle="modal" data-target="#exampleModal" (click)=onedit(usuario)>
+                        <i class="far fa-edit"></i>
+                      </a> 
+                </td>
+                <td>
+                    <a class="btn btn-danger text-white" (click)=ondelete(usuario.$key)>
+                      <i class="far fa-trash-alt"></i>
+                    </a>
+                  </td>
+                </tr>
+                </ng-container>
+          
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- aqui empieza el llenado del modal-->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar Credenciales</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+  <!-- esta el formulario del modal-->
+  
+        <form #permisoForm="ngForm"   >
+    
+          <div class="form-group">
+                <input 
+                type="text" 
+                class="form-control" 
+                name="$key"
+                #$key="ngModel"
+                [(ngModel)]="usuarioService.selectUsuario.$key"
+                placeholder="key">
+              </div>
+             <div class="form-group">
+                <label for="validationServer01">Correo</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                name="correo"
+                #correo="ngModel"
+                [(ngModel)]="usuarioService.selectUsuario.correo"
+                readonly
+                ></div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" 
+                     id="clave" 
+                     name="clave"
+                      #clave="ngModel"
+                      [(ngModel)]="usuarioService.selectUsuario.clave"
+                     placeholder="Password">
+                  </div>
+                <div class="form-row">
+                    <div div class="col-md-6 mb-3">
+                    <div class="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" class="custom-control-input" id="customControlValidation1" 
+                    name="cusuario"
+                    #cusuario="ngModel"
+                  [(ngModel)]="usuarioService.selectUsuario.cusuario"
+                  placeholder="Dar Permisos para crear Usuarios">
+                  <label class="custom-control-label" for="customControlValidation1">Dar acceso para Crear usuarios</label>
+                      
+                </div>
+                </div>
+                 
+      
+                 
+                
+                  <div div class="col-md-6 mb-3">     
+                      <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="customControlValidation2" 
+                      name="rudusuario"
+                      #rudusuario="ngModel"
+                    [(ngModel)]="usuarioService.selectUsuario.rudusuario">    
+                    <label class="custom-control-label" for="customControlValidation2">Dar acceso para Modificar Credenciales</label>
+                  </div>
+                  </div>  
+                </div>
+        
+                 
+                 <div class="form-row">
+                    <div div class="col-md-6 mb-3">
+                    <div class="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" class="custom-control-input" id="customControlValidation3" 
+                  name="cbanner"
+                  #cbanner="ngModel"
+                [(ngModel)]="usuarioService.selectUsuario.cbanner">
+                <label class="custom-control-label" for="customControlValidation3">Dar acceso para Crear Banner</label>
+                      
+              </div>
+              </div>  
+    
+             
+    
+                <div div class="col-md-6 mb-3">     
+                    <div class="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" class="custom-control-input" id="customControlValidation4" 
+                    name="rudbanner"
+                    #rudbanner="ngModel"
+                  [(ngModel)]="usuarioService.selectUsuario.rudbanner">
+                  <label class="custom-control-label" for="customControlValidation4">Dar acceso para RUD Banner</label>
+                      
+                </div>  
+                </div>
+                 </div>
+    
+                 <div class="form-row">
+                    <div div class="col-md-6 mb-3">
+                    <div class="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" class="custom-control-input" id="customControlValidation5" 
+                        name="cactividades"
+                        #cactividades="ngModel"
+                      [(ngModel)]="usuarioService.selectUsuario.cactividades"> 
+                      <label class="custom-control-label" for="customControlValidation5">Dar acceso para Crear Actividades</label>
+                      
+                    </div>
+                    </div>  
+         
+                    <div div class="col-md-6 mb-3">     
+                  <div class="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" class="custom-control-input " id="customControlValidation6" 
+                      name="rudactividades"
+                      #rudactividades="ngModel"
+                    [(ngModel)]="usuarioService.selectUsuario.rudactividades">
+                      
+                      <label class="custom-control-label" for="customControlValidation6">Dar acceso para RUD Actividades</label>
+                      
+                    </div>  
+                    </div>
+    
+    
+    
+                </div>
+  
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button class="btn btn-primary"  type="button" (click)="permiso(permisoForm);" data-dismiss="modal" > Guardar</button>
+
+                </form>
+  <!-- aqui termina en el modal-->
+          </div>
+          <div class="modal-footer">
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+    

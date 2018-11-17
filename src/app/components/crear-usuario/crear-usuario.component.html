@@ -4,17 +4,113 @@
     <div class="card">
       <div class="card-body">
         <h1 class="text-center">Registro de usuario</h1>
-        <form (submit)='OnSubmitaddUser()'>
+        <form #usuarioForm="ngForm" (submit)='OnSubmitaddUser(usuarioForm)'>
           <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" name='email' id="email" [(ngModel)]='email' placeholder="Enter email">
+            <input type="email" class="form-control"             
+             id="correo" 
+             name="correo"
+              #correo="ngModel"
+              [(ngModel)]="usuarioService.selectUsuario.correo"
+             placeholder="Enter email">
          </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" name='password' id="password" [(ngModel)]='password' placeholder="Password">
+            <input type="password" class="form-control" 
+             id="clave" 
+             name="clave"
+              #clave="ngModel"
+              [(ngModel)]="usuarioService.selectUsuario.clave"
+             placeholder="Password">
           </div>
-          <input type="submit" class="btn btn-primary btn-block btn-lg" value="Crear Usuario">
+             <div class="form-row">
+                <div div class="col-md-6 mb-3">
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="customControlValidation1" 
+                name="cusuario"
+                #cusuario="ngModel"
+              [(ngModel)]="usuarioService.selectUsuario.cusuario"
+              placeholder="Dar Permisos para crear Usuarios">
+              <label class="custom-control-label" for="customControlValidation1">Dar acceso para Crear usuarios</label>
+                  
+            </div>
+            </div>
+             
+  
+             
+            
+              <div div class="col-md-6 mb-3">     
+                  <div class="custom-control custom-checkbox mb-3">
+                    <input type="checkbox" class="custom-control-input" id="customControlValidation2" 
+                  name="rudusuario"
+                  #rudusuario="ngModel"
+                [(ngModel)]="usuarioService.selectUsuario.rudusuario">    
+                <label class="custom-control-label" for="customControlValidation2">Dar acceso para Modificar Credenciales</label>
+              </div>
+              </div>  
+            </div>
+    
+             
+             <div class="form-row">
+                <div div class="col-md-6 mb-3">
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="customControlValidation3" 
+              name="cbanner"
+              #cbanner="ngModel"
+            [(ngModel)]="usuarioService.selectUsuario.cbanner">
+            <label class="custom-control-label" for="customControlValidation3">Dar acceso para Crear Banner</label>
+                  
+          </div>
+          </div>  
+
+         
+
+            <div div class="col-md-6 mb-3">     
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="customControlValidation4" 
+                name="rudbanner"
+                #rudbanner="ngModel"
+              [(ngModel)]="usuarioService.selectUsuario.rudbanner">
+              <label class="custom-control-label" for="customControlValidation4">Dar acceso para RUD Banner</label>
+                  
+            </div>  
+            </div>
+             </div>
+
+             <div class="form-row">
+                <div div class="col-md-6 mb-3">
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="customControlValidation5" 
+                    name="cactividades"
+                    #cactividades="ngModel"
+                  [(ngModel)]="usuarioService.selectUsuario.cactividades"> 
+                  <label class="custom-control-label" for="customControlValidation5">Dar acceso para Crear Actividades</label>
+                  
+                </div>
+                </div>  
+     
+                <div div class="col-md-6 mb-3">     
+              <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input " id="customControlValidation6" 
+                  name="rudactividades"
+                  #rudactividades="ngModel"
+                [(ngModel)]="usuarioService.selectUsuario.rudactividades">
+                  
+                  <label class="custom-control-label" for="customControlValidation6">Dar acceso para RUD Actividades</label>
+                  
+                </div>  
+                </div>
+
+
+
+            </div>
+        
+          <input type="submit" class="btn btn-primary btn-block btn-lg bg-success text-white" value="Crear Usuario">
         </form>
+       
+            
+        
+
       </div>
     </div>
   </div>

@@ -1,14 +1,26 @@
 
 
 <!-- mi navbar-->
-<nav class="navbar sticky-top navbar-expand-lg navbar-light  ">
+<nav  class="navbar sticky-top navbar-expand-lg navbar-light" id="menu">
+    
+        <div *ngIf="!isLogin" id="sidebar">
     <a class="navbar-brand" routerLink="inicio">
-      <video class="d-inline-block align-top" autoplay muted loop img src="https://firebasestorage.googleapis.com/v0/b/pentecostalosteques.appspot.com/o/logo%2Flogo%20ipult%20dorado%20peque%C3%B1o.m4v?alt=media&token=4941768b-947e-483b-bc87-3b866d08507d" width="150" height="60"  ></video>
+      <video class="d-inline-block align-top" src="https://firebasestorage.googleapis.com/v0/b/pentecostalosteques.appspot.com/o/logo%2Flogo%20ipult.mp4?alt=media&token=f52e5aef-b33a-495f-94cb-43175e7a28a4" width="150" height="90" autoplay muted loop   ></video>
     </a>
+</div>
+<div *ngIf="isLogin" id="sidebar">
+
+        <a class="navbar-brand" routerLink="principal-administrador">
+                <i class="fas fa-angle-left"></i>
+            Munu</a>
+  </div>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
+
+ 
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
    
@@ -93,21 +105,7 @@
           <li class="nav-item" *ngIf="!isLogin" id="sidebar">
             <a class="nav-link" routerLink="sistemas">Sistemas</a>
         </li>
-        <li class="nav-item" *ngIf="isLogin" id="sidebar">
-          <a class="nav-link" routerLink="crear-banner">Create Banner</a>
-      </li>
-      <li class="nav-item" *ngIf="isLogin" id="sidebar">
-            <a class="nav-link" routerLink="banner-list">RUD. Banner</a>
-        </li>
-        <li class="nav-item" *ngIf="isLogin" id="sidebar">
-            <a class="nav-link" routerLink="crear-actividades">Create Actividades</a>
-        </li>
-        <li class="nav-item"  *ngIf="isLogin" id="sidebar">
-          <a class="nav-link" routerLink="actividadeslist">RUD. actividades</a>
-      </li>
-      <li class="nav-item" *ngIf="isLogin" id="sidebar">
-        <a class="nav-link" routerLink="crear-usuario">Create usuario</a>
-    </li>
+  
     <li class="nav-item" *ngIf="isLogin" id="sidebar">
             <button class="btn btn-outline-danger"   type="button" (click)="Logout();"  >Cerrar Sesion</button>
          
@@ -115,8 +113,8 @@
 </ul>
    
         </div>
-
+    
   </nav>
   
 
-         
+

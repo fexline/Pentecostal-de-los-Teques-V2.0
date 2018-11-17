@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-navbar-clientes',
@@ -13,6 +14,7 @@ export class NavbarClientesComponent implements OnInit {
   public nombreUsuario: string;
   public email: string;
   public password: string;
+  
  
   constructor(
     public authService : AuthService,
@@ -26,8 +28,9 @@ export class NavbarClientesComponent implements OnInit {
     this.authService.getAuth().subscribe( auth  => {
       if (auth) {
         this.isLogin = true;
-        this.nombreUsuario = auth.displayName;
         this.email = auth.email;
+        this.nombreUsuario = auth.displayName;
+        
 
       } else { 
         this.isLogin = false;

@@ -1,0 +1,27 @@
+.fondo1{
+    height: 400px;
+    background: salmon;
+  }
+  .fondo2{
+    height: 400px;
+    background: pink;
+  }
+  .fondo3{
+    height: 400px;
+    background: salmon;
+  }
+  .bg-primary{
+    transition: all 1s ease;
+  }
+#menu{
+     background: #444; border-color: #444  ; box-shadow: 0 0 2px 0 #444  ; 
+}  
+
+nav.bg-claro a { color: #F1C40F; }
+nav.bg-claro ul.navbar-nav a { color: #F39C12; border-style: solid; border-width: 0 0 2px 0; border-color: #fff; }
+nav.bg-claro ul.navbar-nav a:hover,
+nav.bg-claro ul.navbar-nav a:visited,
+nav.bg-claro ul.navbar-nav a:focus,
+nav.bg-claro ul.navbar-nav a:active { background: #fff; }
+nav.bg-claro ul.navbar-nav a:hover { border-color: #F1C40F; }
+nav.bg-claro li.divider { background: #ccc; }
